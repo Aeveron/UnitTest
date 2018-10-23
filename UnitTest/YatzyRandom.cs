@@ -2,7 +2,7 @@
 
 namespace UnitTest
 {
-    class YatzyRandom
+    public class YatzyRandom
     {
         private static YatzyRandom _instance;
         public static YatzyRandom Instance => _instance ?? (_instance = new YatzyRandom());
