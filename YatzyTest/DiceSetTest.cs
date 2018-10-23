@@ -10,9 +10,17 @@ namespace YatzyTest
         [TestMethod]
         public void TestGetValues()
         {
-            var diceSet = new DiceSet();
+            var diceSet = new DiceSet(3, 3, 1, 2, 5);
             var values = diceSet.GetValues();
             Assert.AreEqual(5, values.Length);
+        }
+
+        [TestMethod]
+        public void TestPointsAsOnePair()
+        {
+            var diceSet = new DiceSet();
+            var points = diceSet.GetPointsAsOnePair();
+            Assert.AreEqual(6, points);
         }
     }
 }
