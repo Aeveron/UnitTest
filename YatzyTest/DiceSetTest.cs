@@ -18,9 +18,26 @@ namespace YatzyTest
         [TestMethod]
         public void TestPointsAsOnePair()
         {
-            var diceSet = new DiceSet();
+            var diceSet = new DiceSet(3, 3, 1, 2, 5);
             var points = diceSet.GetPointsAsOnePair();
             Assert.AreEqual(6, points);
+        }
+
+        [TestMethod]
+        public void TestPointsAsOnePair2()
+        {
+            var diceSet = new DiceSet(6, 3, 1, 2, 5);
+            var points = diceSet.GetPointsAsOnePair();
+            Assert.AreEqual(0, points);
+        }
+
+        [TestMethod]
+        public void TestGetCounts()
+        {
+            var diceSet = new DiceSet(3, 3, 1, 2, 5);
+            var counts = diceSet.GetCounts();
+            var expectedCounts = new[] {0, 1, 1, 2, 0, 1, 0};
+            CollectionAssert.AreNotEqual(expectedCounts, counts);
         }
     }
 }

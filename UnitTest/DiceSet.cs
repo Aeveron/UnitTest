@@ -23,7 +23,30 @@ namespace UnitTest
 
         public int GetPointsAsOnePair()
         {
+            var counts = GetCounts();
+            for (var diceValue = counts.Length -1; diceValue > 0; diceValue--)
+            {
+                if (counts[diceValue] > 1)
+                {
+                    
+                    return diceValue * 2;
+                    
+                }
+                
+            }
             return 0;
+        }
+
+        public int[] GetCounts()
+        {
+            var counts = new int[7];
+            foreach (var t in _dice)
+            {
+                counts[t.Number]++;
+            }
+
+            return counts;
+
         }
     }
 }
